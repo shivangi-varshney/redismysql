@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"github.com/gomodule/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
+	"reflect"
 )
 
 var tpl *template.Template
@@ -121,6 +122,7 @@ func setStruct(c redis.Conn,i int,t string,co string) error {
 
 	// serialize User object to JSON
 	json, err := json.Marshal(usr)
+	fmt.Println(reflect.TypeOf(json))
 	if err != nil {
 		return err
 	}
