@@ -31,6 +31,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	defer db.Close()
 
 	fmt.Println("Successfully Connected")
+	fmt.Println("Yes it is connected")
 
 	pool := newPool()
 
