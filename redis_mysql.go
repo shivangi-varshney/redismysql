@@ -77,11 +77,11 @@ func foo(w http.ResponseWriter, req *http.Request) {
 	}
 
 	
-	/*err2 := tpl.ExecuteTemplate(w, "index.gohtml", person{f, l, s})
+	err2 := tpl.ExecuteTemplate(w, "index.gohtml", person{f, l, s})
 	if err2 != nil {
 		http.Error(w, err2.Error(), 500)
 		log.Fatalln(err2)
-	}*/
+	}
 
 }
 func login(w http.ResponseWriter, req *http.Request) {
@@ -105,11 +105,13 @@ func newPool() *redis.Pool {
 		},
 	}
 }  
+
 type User struct {
 	Id int `json:"id"`
 	Title  string `json:"title"`
 	Content  string `json:"content"`
 }
+
 func setStruct(c redis.Conn,i int,t string,co string) error {
 
 	const objectPrefix string = "user:"
@@ -138,10 +140,7 @@ func setStruct(c redis.Conn,i int,t string,co string) error {
 
 
 func main() {
-
-	
-	http.HandleFunc("/", login)
-	http.HandleFunc("/foo", foo)
-	http.ListenAndServe(":8002", nil)
-
+   http.HandleFunc("/", login)
+   http.HandleFunc("/foo", foo)
+   http.ListenAndServe(":8002", nil)
 }
