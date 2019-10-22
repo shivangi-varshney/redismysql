@@ -63,6 +63,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
         err3 := selDB.Scan(&id, &title, &content)
         if err3 != nil {
             panic(err3.Error())
+		println("Hello")
         }
         usr.Id = id
         usr.Title = title
