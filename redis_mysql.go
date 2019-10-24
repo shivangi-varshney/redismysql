@@ -125,6 +125,7 @@ func setStruct(c redis.Conn,i int,t string,co string) error {
 
 	// serialize User object to JSON
 	json, err := json.Marshal(usr)
+	fmt.Println("aur baatao sab badhiya")
 	fmt.Println(reflect.TypeOf(json))
 	if err != nil {
 		return err
