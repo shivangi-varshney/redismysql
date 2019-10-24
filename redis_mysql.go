@@ -33,6 +33,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
 
 	fmt.Println("Successfully Connected")
 	fmt.Println("Yes it is connected")
+	fmt.Println("It should be connected")
 
 	pool := newPool()
 
@@ -63,6 +64,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
         err3 := selDB.Scan(&id, &title, &content)
         if err3 != nil {
             panic(err3.Error())
+		
 		println("Hello")
         }
         usr.Id = id
@@ -101,6 +103,7 @@ func newPool() *redis.Pool {
 			c, err := redis.Dial("tcp", ":6379")
 			if err != nil {
 				panic(err.Error())
+				
 			}
 			return c, err
 		},
@@ -143,5 +146,5 @@ func setStruct(c redis.Conn,i int,t string,co string) error {
 func main() {
    http.HandleFunc("/", login)
    http.HandleFunc("/foo", foo)
-   http.ListenAndServe(":8002", nil)
+   http.ListenAndServe(":8060", nil)
 }
