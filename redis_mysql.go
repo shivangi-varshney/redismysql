@@ -64,6 +64,7 @@ func foo(w http.ResponseWriter, req *http.Request) {
         if err3 != nil {
             panic(err3.Error())
 		println("Hello")
+		println("Hello World")
         }
         usr.Id = id
         usr.Title = title
